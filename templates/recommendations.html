@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Everyone's recommendations
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-start">Name</th>
+                <th class="text-end">First Choice</th>
+                <th class="text-end">Second Choice</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in recommendations %}
+                <tr>
+                    <td class="text-start">{{ row["name"] }}</td>
+                    <td class="text-end">{{ row["suggestion_1"] }}</td>
+                    <td class="text-end">{{ row["suggestion_2"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

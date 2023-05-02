@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Everyone's recommendations
+{% endblock %}
+
+{% block main %}
+    <p>Voting is final! If you change your mind, you must contact an administrator, bro!</p>
+    <br>
+    <!-- Loop through 'suggestions' table to get all the books suggested EXCEPT the user's suggestions-->
+    <form action="/vote" method="post">
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" name="first">
+                <option disabled selected>First Choice</option>
+                    {% for row in suggestions %}
+                        {% if row["userid"] != session["user_id"] %}
+                            <option value="{{ row['suggestion_1'] }}">{{ row['suggestion_1'] }}</option>
+                            <option value="{{ row['suggestion_2'] }}">{{ row['suggestion_2'] }}</option>
+                        {% endif %}
+                    {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" name="second">
+                <option disabled selected>Second Choice</option>
+                    {% for row in suggestions %}
+                        {% if row["userid"] != session["user_id"] %}
+                            <option value="{{ row['suggestion_1'] }}">{{ row['suggestion_1'] }}</option>
+                            <option value="{{ row['suggestion_2'] }}">{{ row['suggestion_2'] }}</option>
+                        {% endif %}
+                    {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" name="third">
+                <option disabled selected>Third Choice</option>
+                    {% for row in suggestions %}
+                        {% if row["userid"] != session["user_id"] %}
+                            <option value="{{ row['suggestion_1'] }}">{{ row['suggestion_1'] }}</option>
+                            <option value="{{ row['suggestion_2'] }}">{{ row['suggestion_2'] }}</option>
+                        {% endif %}
+                    {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Vote, bro!</button>
+    </form>
+{% endblock %}

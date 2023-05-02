@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change you suggestion
+{% endblock %}
+
+{% block main %}
+    <form action="/change" method="post">
+        <!-- Using textarea instead of input so a long book title will fit in the box-->
+        <div class="mb-3">
+            <textarea rows="1" cols="70" class="form-control mx-auto w-auto" name="change1" placeholder="Change First Suggestion" type="text"></textarea>
+        </div>
+        <div class="mb-3">
+            <textarea rows="1" cols="70" class="form-control mx-auto w-auto" name="change2" placeholder="Change Second Suggestion" type="text"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit yo!</button>
+    </form>
+    <br>
+    <img src="/static/catreading.jpg" class="img-fluid w-25" alt="ahhh">
+
+{% endblock %}
